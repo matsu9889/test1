@@ -1,0 +1,55 @@
+.contact-form__content {
+    margin: 0 auto;
+    width: 70%;
+    max-width: 1230px;
+}
+
+.contact-form__heading {
+    font-family: serif;
+    text-align: center;
+}
+
+.contact-table {
+    width: 100%;
+    border-collapse: collapse;
+
+}
+
+.contact-table__header {
+    width: 40%;
+    padding: 10px 20px;
+    text-align: left;
+    font-weight: 400;
+    background-color: #666;
+    color: #FFF;
+    border: 1px solid #999;
+}
+
+.contact-table__item {
+    width: 60%;
+    border: 1px solid #999;
+    padding: 10px 20px;
+}
+
+.form__button {
+    margin-top: 40px;
+    text-align: center;
+}
+
+.form__button-submit {
+    padding: 5px 20px;
+    margin-right: 20px;
+    background-color: #000;
+    color: #FFF;
+    border: none;
+
+}
+
+.form__button-correction {
+    padding: 5px 20px;
+    background-color: #FFF;
+    color: #000;
+    border: none;
+}
+
+
