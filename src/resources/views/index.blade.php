@@ -22,7 +22,8 @@
             <div class="contact-form__heading">
                 <h2>Contact</h2>
             </div>
-            <form class="contact-form" action="">
+            <form class="contact-form" action="/confirm" method="post">
+                @csrf
                 <div class="contact-form__group">
                     <div class="contact-form__group-title">
                         <label for="family-name">お名前<span class="form__label--item"> ※</span></label>
