@@ -26,15 +26,15 @@
             </div>
             <div class="contact-form__group-gender">
                 <div class="contact-form__item-gender">
-                    <input type="radio" name="gender" id="men" value="男性">
+                    <input type="radio" name="gender" id="men" value="1">
                     <label for="men">男性</label>
                 </div>
                 <div class="contact-form__item-gender">
-                    <input type="radio" name="gender" id="women" value="女性">
+                    <input type="radio" name="gender" id="women" value="2">
                     <label for="women">女性</label>
                 </div>
                 <div class="contact-form__item-gender">
-                    <input type="radio" name="gender" id="others" value="その他">
+                    <input type="radio" name="gender" id="others" value="3">
                     <label for="others">その他</label>
                 </div>
             </div>
