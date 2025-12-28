@@ -30,18 +30,28 @@
 }
 
 .contact-form__item {
-    padding: 10px 5px;
     width: 45%;
+}
+
+.contact-form__item-input {
+    padding: 10px 5px;
+    width: 100%;
     background-color: #eee;
     border: none;
     color: #999;
 }
 
-.contact-form__group-gender {
+.contact-form__error {
+    color: #F00;
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+.contact-form__gender {
     display: flex;
 }
 
-.contact-form__item-gender {
+.contact-form__gender-item {
     margin-right: 20px;
 }
 
@@ -59,6 +69,9 @@
 
 .contact-form__group-tel {
     width: 60%;
+}
+
+.contact-form__tel {
     display: flex;
     justify-content: space-between;
 }
