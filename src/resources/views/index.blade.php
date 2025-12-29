@@ -120,8 +120,9 @@
             <div class="contact-form__group-kinds">
                 <select class="contact-form__item-kinds" name="content" id="content">
                     <option value="">選択してください</option>
-                    <option value="">B</option>
-                    <option value="">C</option>
+                    @foreach($categories as $category)
+                    <option value="{{ $category['id'] }}">{{ $category['content'] }}</option>
+                    @endforeach
                 </select>
                 <div class="contact-form__error">
                     @error('content')
