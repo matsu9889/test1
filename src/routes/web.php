@@ -22,3 +22,4 @@ Route::get('/thanks', function () {
     return view('thanks');
 });
 Route::get('/admin', [AdminContactController::class, 'index']);
+Route::get('/search', [AdminContactController::class, 'search']);

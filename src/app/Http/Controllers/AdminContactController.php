@@ -2,28 +2,38 @@
 
 namespace App\Http\Controllers;
 
-
+use App\Models\Category;
+use App\Models\Contact;
 use Illuminate\Http\Request;
 
 class AdminContactController extends Controller
 {
     public function index()
     {
-        return view('admin.index');
-    }
-
-    public function find()
-    {
-        return view('find', ['input' => '']);
+        $contacts = Contact::all();
+        $categories = Category::all();
+        return view('admin.index', compact('contacts', 'categories'));
     }
 
     public function search(Request $request)
     {
-        $item = Author::where('name', 'LIKE', "%{$request->input}%")->first();
-        $param = [
-            'input' => $request->input,
-            'item' => $item
-        ];
-        return view('find', $param);
+        $query = Contact::query();
+
+        if ($request->input != '') {
+            $query->where('name', 'LIKE', "%{$request->input}%")
+                ->orwhere('email', 'LIKE', "%{$request->input}%");
+        }
+
+        if ($request->gender != '') {
+            $query->where('gender', $request->gender);
+        }
+
+        // if ($request->detail != '') {
+        //     $query->where('category_id', $request->detail);
+        // }
+
+        $categories = Category::all();
+        $contacts = $query->get();
+        return view('admin.index', compact('contacts', 'categories'));
     }
 }
