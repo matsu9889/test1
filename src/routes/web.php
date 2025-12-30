@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ContactsController;
+use App\Http\Controllers\AdminContactController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,3 +21,4 @@ Route::post('/thanks', [ContactsController::class, 'store']);
 Route::get('/thanks', function () {
     return view('thanks');
 });
+Route::get('/admin', [AdminContactController::class, 'index']);
