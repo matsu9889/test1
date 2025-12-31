@@ -1,0 +1,104 @@
+.header {
+    position: relative;
+    border-bottom: solid 1px #999;
+}
+
+.header__inner {
+    font-family: serif;
+    font-size: 28px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.header__inner a {
+    text-decoration: none;
+    color: #000;
+}
+
+.header__logout {
+    position: absolute;
+    top: 50%;
+    right: 40px;
+    border: solid 1px #999;
+    padding: 5px 10px;
+}
+
+.admin__heading {
+    font-family: serif;
+    text-align: center;
+}
+
+.admin__content {
+    margin: 0 auto;
+    width: 70%;
+    max-width: 1230px;
+}
+
+.admin__input {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.admin__input-text {
+    width: 35%;
+}
+
+.admin__input-text input {
+    width: 100%;
+    padding: 5px 10px;
+    background-color: #eee;
+    border: 1px solid #999;
+}
+
+.admin__input-select {
+    padding: 5px;
+    background-color: #eee;
+    border: 1px solid #999;
+}
+
+.admin__input-search {
+    padding: 5px 10px;
+    background-color: #000;
+    border: 1px solid #000;
+    color: #FFF;
+}
+
+.admin__input-reset {
+    padding: 5px 10px;
+    background-color: #999;
+    border: 1px solid #999;
+    color: #FFF;
+}
+
+.admin__export {
+    padding: 5px 10px;
+    background-color: #eee;
+    border: 1px solid #eee;
+}
+
+.table {
+    width: 100%;
+}
+
+.table__header {
+    background-color: #000;
+    color: #FFF;
+}
+
+.table__header th {
+    padding: 10px;
+    text-align: left;
+}
+
+.table__description td {
+    padding: 10px;
+    text-align: left;
+}
+
+.table__description-detail {
+    padding: 5px 10px;
+    background-color: #eee;
+    border: 1px solid #999;
+}
