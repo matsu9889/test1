@@ -71,6 +71,51 @@
             </table>
         </div>
     </main>
+    <div class="modal">
+        <div class="modal__content">
+            <button type="button" class="modal-close">&times;</button>
+            <table class="modal__table">
+                <tr class="modal__table-row">
+                    <th>お名前</th>
+                    <td>山田 太郎</td>
+                </tr>
+                <tr>
+                    <th>性別</th>
+                    <td>男性</td>
+                </tr>
+                <tr>
+                    <th>メールアドレス</th>
+                    <td>test@example.com</td>
+                </tr>
+                <tr>
+                    <th>電話番号</th>
+                    <td>08012345678</td>
+                </tr>
+                <tr>
+                    <th>住所</th>
+                    <td>東京都渋谷区千駄ヶ谷1-2-3</td>
+                </tr>
+                <tr>
+                    <th>建物名</th>
+                    <td>千駄ヶ谷マンション101</td>
+                </tr>
+                <tr>
+                    <th>お問い合わせの種類</th>
+                    <td>商品の交換について</td>
+                </tr>
+                <tr>
+                    <th>お問い合わせ内容</th>
+                    <td>
+                        ここにお問い合わせ本文が入ります
+                    </td>
+                </tr>
+            </table>
+            <form action=""></form>
+            <div class="modal__button">
+                <button class="modal__button-delete">削除</button>
+            </div>
+        </div>
+    </div>
 </body>
 
 </html>
