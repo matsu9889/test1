@@ -26,8 +26,10 @@ Route::get('/thanks', function () {
 Route::get('/admin', [AdminContactController::class, 'index']);
 Route::get('/search', [AdminContactController::class, 'search']);
 Route::get('/register', [RegisterController::class, 'index']);
-Route::post('/register', [RegisterController::class, 'register']);
-Route::middleware('auth')->group(function () {
-    Route::get('/login', [LoginController::class, 'index']);
-});
+//Route::post('/register', [RegisterController::class, 'register']);
+Route::get('/login', [LoginController::class, 'index'])->name('login');
 Route::post('/login', [LoginController::class, 'login']);
+Route::middleware('auth')->group(function () {
+    Route::get('/admin', [AdminContactController::class, 'index']);
+});
+

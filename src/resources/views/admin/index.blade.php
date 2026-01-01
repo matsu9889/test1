@@ -17,7 +17,10 @@
             </a>
         </h1>
         @if (Auth::check())
-        <button class="header__logout">logout</button>
+        <form action="/logout" method="post">
+            @csrf
+            <button class="header__logout">logout</button>
+        </form>
         @endif
     </header>
     <main>
