@@ -16,7 +16,9 @@
                 Fashionably Late
             </a>
         </h1>
+        @if (Auth::check())
         <button class="header__logout">logout</button>
+        @endif
     </header>
     <main>
         <div class="admin__content">

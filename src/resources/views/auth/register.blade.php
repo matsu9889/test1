@@ -29,11 +29,11 @@
                 @csrf
                 <div class="form-group">
                     <label class="form-label" for="name">お名前</label>
-                    <input class="form-input" type="text" id="name" name="name" placeholder="例：山田太郎">
+                    <input class="form-input" type="text" id="name" name="name" value="{{ old('name') }}" placeholder="例：山田太郎">
                 </div>
                 <div class="form-group">
                     <label class="form-label" for="email">メールアドレス</label>
-                    <input class="form-input" type="text" id="email" name="email" placeholder="例：test@example.com">
+                    <input class="form-input" type="text" id="email" name="email" value="{{ old('email') }}" placeholder="例：test@example.com">
                 </div>
                 <div class="form-group">
                     <label class="form-label" for="password">パスワード</label>
