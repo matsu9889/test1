@@ -17,7 +17,7 @@ class ContactsController extends Controller
 
     public function confirm(ContactRequest $request)
     {
-        $contact = $request->only(['first_name', 'last_name', 'gender', 'email', 'address', 'building', 'content', 'detail']);
+        $contact = $request->only(['category_id', 'first_name', 'last_name', 'gender', 'email', 'address', 'building', 'detail']);
         $contact['tel'] = $request->tel1 . $request->tel2 . $request->tel3;
         $genderMap = [
             1 => '男性',
@@ -26,12 +26,14 @@ class ContactsController extends Controller
         ];
 
         $contact['gender_text'] = $genderMap[$contact['gender']] ?? '';
+        $category = Category::find($contact['category_id']);
+        $contact['category_text'] = $category->content;
         return view('confirm', compact('contact'));
     }
 
     public function store(Request $request)
     {
-        $contact = $request->only(['first_name', 'last_name', 'gender', 'email', 'tel', 'address', 'building', 'content', 'detail']);
+        $contact = $request->only(['category_id', 'first_name', 'last_name', 'gender', 'email', 'tel', 'address', 'building', 'detail']);
         Contact::create($contact);
         return redirect('/thanks');
     }

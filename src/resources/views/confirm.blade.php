@@ -56,7 +56,8 @@
             <tr class="contact-table__row">
                 <th class="contact-table__header">お問い合わせの種類</th>
                 <td class="contact-table__item">
-                    <input type="text" name="content" value="{{ $contact['content'] }}" readonly />
+                    <input type="text" name="content" value="{{ $contact['category_text'] }}" readonly />
+                    <input type="hidden" name="category_id" value="{{ $contact['category_id'] }}" readonly />
                 </td>
             </tr>
             <tr class="contact-table__row">

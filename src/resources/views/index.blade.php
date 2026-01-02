@@ -115,17 +115,17 @@
         </div>
         <div class="contact-form__group">
             <div class="contact-form__group-title">
-                <label for="content">お問い合わせの種類<span class="form__label--item"> ※</span></label>
+                <label for="category_id">お問い合わせの種類<span class="form__label--item"> ※</span></label>
             </div>
             <div class="contact-form__group-kinds">
-                <select class="contact-form__item-kinds" name="content" id="content">
+                <select class="contact-form__item-kinds" name="category_id" id="category_id">
                     <option value="">選択してください</option>
                     @foreach($categories as $category)
                     <option value="{{ $category['id'] }}">{{ $category['content'] }}</option>
                     @endforeach
                 </select>
                 <div class="contact-form__error">
-                    @error('content')
+                    @error('category_id')
                     {{$message}}
                     @enderror
                 </div>
