@@ -24,7 +24,7 @@
             <tr class="contact-table__row">
                 <th class="contact-table__header">性別</th>
                 <td class="contact-table__item">
-                    <input type="text" name="" value="{{ $contact['gender_text'] }}" readonly />
+                    <input type="text" name="gender" value="{{ $contact['gender_text'] }}" readonly />
                     <input type="hidden" name="gender" value="{{ $contact['gender'] }}">
                 </td>
             </tr>
