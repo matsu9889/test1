@@ -72,10 +72,51 @@
     color: #FFF;
 }
 
-.admin__export {
+/* コピペ */
+.admin-controls {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.admin-controls .export {
     padding: 5px 10px;
     background-color: #eee;
     border: 1px solid #eee;
+    cursor: pointer;
+}
+
+.custom-pagination {
+    display: flex;
+}
+
+.custom-pagination a {
+    display: inline-block;
+    padding: 5px 10px;
+    border: 1px solid #999;
+    text-decoration: none;
+    color: #333;
+    margin-left: -1px;
+}
+
+.custom-pagination a:first-child {
+    margin-left: 0;
+}
+
+.custom-pagination a.active {
+    background-color: #000;
+    color: #fff;
+    border-color: #000;
+}
+
+.custom-pagination a.arrow {
+    font-weight: bold;
+}
+
+svg.w-5.h-5 {
+    width: 30px;
+    height: 30px;
 }
 
 .table {

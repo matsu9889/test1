@@ -47,8 +47,31 @@
                     <button class="admin__input-reset">リセット</button>
                 </div>
             </form>
-            <button class="admin__export">エクスポート</button>
-            ページ
+            <div class="admin-controls">
+                <button class="export">エクスポート</button>
+                @foreach ($authors as $author)
+                <div class="Pagination">
+                    {{$author->name}}
+                </div>
+                @endforeach
+
+                <!-- コピペ -->
+                <div class="custom-pagination">
+                    {{-- 前ページ --}}
+                    <a href="{{ $authors->url(max($authors->currentPage() - 1, 1)) }}" class="arrow">&lt;</a>
+
+                    @for ($i = 1; $i <= $authors->lastPage(); $i++)
+                        <a href="{{ $authors->url($i) }}" class="{{ $i == $authors->currentPage() ? 'active' : '' }}">
+                            {{ $i }}
+                        </a>
+                        @endfor
+
+                        {{-- 次ページ（常に表示） --}}
+                        <a href="{{ $authors->url(min($authors->currentPage() + 1, $authors->lastPage())) }}" class="arrow">&gt;</a>
+                </div>
+            </div>
+
+
             <table class="table">
                 <tr class="table__header">
                     <th>お名前</th>
@@ -62,7 +85,7 @@
                     <td>{{$contact->name}}</td>
                     <td>{{$contact->gender}}</td>
                     <td>{{$contact->email}}</td>
-                    <td>{{$contact->detail}}</td>
+                    <td>{{$contact->category_id}}</td>
                     <td>
                         <button class="table__description-detail" onclick="document.getElementById('modal').showModal()">
                             詳細
