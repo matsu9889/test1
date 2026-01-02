@@ -30,10 +30,20 @@
                 <div class="form-group">
                     <label class="form-label" for="email">メールアドレス</label>
                     <input class="form-input" type="text" id="email" name="email" value="{{ old('email') }}" placeholder="例：test@example.com">
+                    <div class="form-error">
+                        @error('email')
+                        {{ $errors->first('email') }}
+                        @enderror
+                    </div>
                 </div>
                 <div class="form-group">
                     <label class="form-label" for="password">パスワード</label>
                     <input class="form-input" type="password" id="password" name="password" placeholder="例：coachtech1106">
+                    <div class="form-error">
+                        @error('password')
+                        {{$errors->first('password')}}
+                        @enderror
+                    </div>
                 </div>
                 <div class="auth-button">
                     <button class="auth-submit" type="submit">ログイン</button>

@@ -23,13 +23,16 @@ Route::post('/thanks', [ContactsController::class, 'store']);
 Route::get('/thanks', function () {
     return view('thanks');
 });
-Route::get('/admin', [AdminContactController::class, 'index']);
-Route::get('/search', [AdminContactController::class, 'search']);
-Route::get('/register', [RegisterController::class, 'index']);
-//Route::post('/register', [RegisterController::class, 'register']);
+//認証不要
 Route::get('/login', [LoginController::class, 'index'])->name('login');
 Route::post('/login', [LoginController::class, 'login']);
+Route::post('/logout', [LoginController::class, 'logout']);
+Route::get('/register', [RegisterController::class, 'index']);
+//認証必要
 Route::middleware('auth')->group(function () {
     Route::get('/admin', [AdminContactController::class, 'index']);
+    Route::get('/search', [AdminContactController::class, 'search']);
 });
+
+
 
