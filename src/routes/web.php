@@ -31,8 +31,7 @@ Route::get('/register', [RegisterController::class, 'index']);
 //認証必要
 Route::middleware('auth')->group(function () {
     Route::get('/admin', [AdminContactController::class, 'index']);
-    Route::get('/search', [AdminContactController::class, 'search']);
+    Route::get('/admin/search', [AdminContactController::class, 'search']);
+    Route::get('/admin/reset', [AdminContactController::class, 'reset']);
+    Route::delete('admin/delete/{id}', [AdminContactController::class, 'destroy']);
 });
-
-
-

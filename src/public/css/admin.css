@@ -30,7 +30,7 @@
 
 .admin__content {
     margin: 0 auto;
-    width: 70%;
+    width: 80%;
     max-width: 1230px;
 }
 
@@ -38,6 +38,8 @@
     display: flex;
     justify-content: space-between;
     gap: 10px;
+    width: 100%;
+    max-width: 1230px;
     margin-bottom: 20px;
 }
 
@@ -47,7 +49,7 @@
 
 .admin__input-text input {
     width: 100%;
-    padding: 5px 10px;
+    padding: 10px;
     background-color: #eee;
     border: 1px solid #999;
 }
@@ -56,6 +58,14 @@
     padding: 5px;
     background-color: #eee;
     border: 1px solid #999;
+    cursor: pointer;
+}
+
+.admin__date {
+    padding: 5px;
+    background-color: #eee;
+    border: 1px solid #999;
+    cursor: pointer;
 }
 
 .admin__input-search {
@@ -63,37 +73,94 @@
     background-color: #000;
     border: 1px solid #000;
     color: #FFF;
+    cursor: pointer;
 }
 
 .admin__input-reset {
     padding: 5px 10px;
     background-color: #999;
     border: 1px solid #999;
-    color: #FFF;
 }
 
-.admin__export {
+.admin__input-reset {
+    font-size: 14px;
+    color: #FFF;
+    text-decoration: none;
+}
+
+/* コピペ */
+.admin-controls {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.admin-controls .export {
     padding: 5px 10px;
     background-color: #eee;
     border: 1px solid #eee;
+    cursor: pointer;
+}
+
+.custom-pagination {
+    display: flex;
+}
+
+.custom-pagination a {
+    display: inline-block;
+    padding: 5px 10px;
+    border: 1px solid #999;
+    text-decoration: none;
+    color: #333;
+    margin-left: -1px;
+}
+
+.custom-pagination a:first-child {
+    margin-left: 0;
+}
+
+.custom-pagination a.active {
+    background-color: #000;
+    color: #fff;
+    border-color: #000;
+}
+
+.custom-pagination a.arrow {
+    font-weight: bold;
+}
+
+svg.w-5.h-5 {
+    width: 30px;
+    height: 30px;
 }
 
 .table {
     width: 100%;
+    margin-bottom: 30px;
 }
 
 .table__header {
     background-color: #000;
     color: #FFF;
+    border: 1px solid #000;
 }
 
 .table__header th {
-    padding: 10px;
+    padding: 10px 20px;
     text-align: left;
 }
 
+.table__description {
+    border: 1px solid #999;
+}
+
+.table__description:hover {
+    background-color: #ddd;
+}
+
 .table__description td {
-    padding: 10px;
+    padding: 10px 20px;
     text-align: left;
 }
 
@@ -101,6 +168,7 @@
     padding: 5px 10px;
     background-color: #eee;
     border: 1px solid #999;
+    cursor: pointer;
 }
 
 .modal {
@@ -119,13 +187,14 @@
     left: 50%;
     transform: translate(-50%, -50%);
     width: 50%;
-    padding: 50px 30px 20px 30px;
+    height: 90%;
+    padding: 50px;
     background-color: #FFF;
     border: 1px solid #999 ;
     box-shadow: 5px 5px 3px #333;
 }
 
-.modal-close {
+.modal__close {
     position: absolute;
     top: 15px;
     right: 15px;
@@ -144,22 +213,24 @@
     width: 100%;
 }
 
-.modal__table-row {
-    margin-bottom: 10px;
-}
-
-.modal__table th,
-.modal__table td {
+.modal__table th {
+    width: 40%;
+    padding: 5px 0;
     text-align: left;
 }
 
-.modal__button {
-    margin-top: 30px;
-    text-align: center;
-
+.modal__table td {
+    width: 60%;
+    padding: 5px 0;
+    text-align: left;
 }
 
-.modal__button-delete {
+.modal__delete-button {
+    margin-top: 50px;
+    text-align: center;
+}
+
+.modal__delete-submit {
     padding: 5px 10px;
     background-color: #F00;
     color: #FFF;

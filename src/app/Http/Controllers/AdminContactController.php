@@ -10,30 +10,31 @@ class AdminContactController extends Controller
 {
     public function index()
     {
-        $contacts = Contact::all();
+        $contacts = Contact::with('category')->Paginate(7);
         $categories = Category::all();
         return view('admin.index', compact('contacts', 'categories'));
     }
 
     public function search(Request $request)
     {
-        $query = Contact::query();
-
-        if ($request->input != '') {
-            $query->where('name', 'LIKE', "%{$request->input}%")
-                ->orwhere('email', 'LIKE', "%{$request->input}%");
-        }
-
-        if ($request->gender != '') {
-            $query->where('gender', $request->gender);
-        }
-
-        // if ($request->detail != '') {
-        //     $query->where('category_id', $request->detail);
-        // }
-
+        $contacts = Contact::with('category')
+            ->GenderSearch($request->gender)
+            ->CategorySearch($request->category_id)
+            ->DateSearch($request->date)
+            ->KeywordSearch($request->keyword)
+            ->paginate(7);
         $categories = Category::all();
-        $contacts = $query->get();
         return view('admin.index', compact('contacts', 'categories'));
+    }
+
+    public function reset()
+    {
+        return redirect('admin');
+    }
+
+    public function destroy(Request $request)
+    {
+        Contact::find($request->id)->delete();
+        return redirect('admin');
     }
 }
