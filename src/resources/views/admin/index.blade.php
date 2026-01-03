@@ -23,10 +23,10 @@
             <div class="admin__heading">
                 <h2>Admin</h2>
             </div>
-            <form action="/search" method="get">
+            <form action="/admin/search" method="get">
                 <div class="admin__input">
                     <div class="admin__input-text">
-                        <input type="text" name="input" value="{{request('input')}}" placeholder="名前やメールアドレスを入力してください">
+                        <input type="text" name="keyword" value="{{request('keyword')}}" placeholder="名前やメールアドレスを入力してください">
                     </div>
                     <select class="admin__input-select" name="gender" id="">
                         <option value="">性別</option>
@@ -40,9 +40,9 @@
                         <option value="{{ $category['id'] }}">{{ $category['content'] }}</option>
                         @endforeach
                     </select>
-                    <input class="admin__date" type="date" name="date">
-                    <button class="admin__input-search">検索</button>
-                    <button class="admin__input-reset">リセット</button>
+                    <input class="admin__date" type="date" name="created_at">
+                    <button class="admin__input-search" type="submit">検索</button>
+                    <button class="admin__input-reset" type="reset">リセット</button>
                 </div>
             </form>
             <div class="admin-controls">

@@ -39,4 +39,33 @@ class Contact extends Model
             3 => 'その他',
         ][$this->gender] ?? '';
     }
+
+    public function scopeGenderSearch($query, $gender)
+    {
+        if (!empty($gender)) {
+            $query->where('gender', $gender);
+        }
+    }
+
+    public function scopeCategorySearch($query, $category_id)
+    {
+        if (!empty($category_id)) {
+            $query->where('category_id', $category_id);
+        }
+    }
+
+    public function scopeDateSearch($query, $date)
+    {
+        if (!empty($date)) {
+            $query->where('created_at', $date);
+        }
+    }
+
+    public function scopeKeywordSearch($query, $keyword)
+    {
+        if (!empty($keyword)) {
+            $query->where('content', 'like', '%' . $keyword . '%');
+        }
+        return $query;
+    }
 }
