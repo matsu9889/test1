@@ -20,9 +20,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [ContactsController::class, 'index']);
 Route::post('/confirm', [ContactsController::class, 'confirm']);
 Route::post('/thanks', [ContactsController::class, 'store']);
-Route::get('/thanks', function () {
-    return view('thanks');
-});
+Route::get('/thanks', [ContactsController::class, 'thanks']);
 //認証不要
 Route::get('/login', [LoginController::class, 'index'])->name('login');
 Route::post('/login', [LoginController::class, 'login']);

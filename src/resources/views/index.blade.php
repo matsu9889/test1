@@ -65,8 +65,8 @@
                 <label for="email">メールアドレス<span class="form__label--item"> ※</span></label>
             </div>
             <div class="contact-form__group-email">
-                <div class="contact-form__item">
-                    <input class="contact-form__item-email" type="email" name="email" id="email" placeholder="例:test@example.com" value="{{ old('email', request('email')) }}">
+                <div class="contact-form__email">
+                    <input class="contact-form__item-email" type="text" name="email" id="email" placeholder="例:test@example.com" value="{{ old('email', request('email')) }}">
                     <div class="contact-form__error">
                         @error('email')
                         {{$message}}
