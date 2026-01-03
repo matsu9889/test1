@@ -40,9 +40,7 @@
                         <option value="{{ $category['id'] }}">{{ $category['content'] }}</option>
                         @endforeach
                     </select>
-                    <select class="admin__input-select" name="" id="">
-                        <option value="">年/月/日</option>
-                    </select>
+                    <input class="admin__date" type="date" name="date">
                     <button class="admin__input-search">検索</button>
                     <button class="admin__input-reset">リセット</button>
                 </div>
@@ -85,7 +83,7 @@
                     <td>{{$contact->full_name}}</td>
                     <td>{{$contact->gender_label}}</td>
                     <td>{{$contact->email}}</td>
-                    <td>{{$contact->category->name}}</td>
+                    <td>{{$contact->category->content}}</td>
                     <td>
                         <button class="table__description-detail" onclick="document.getElementById('modal').showModal()">
                             詳細

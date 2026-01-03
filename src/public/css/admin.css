@@ -47,12 +47,18 @@
 
 .admin__input-text input {
     width: 100%;
-    padding: 5px 10px;
+    padding: 10px;
     background-color: #eee;
     border: 1px solid #999;
 }
 
 .admin__input-select {
+    padding: 5px;
+    background-color: #eee;
+    border: 1px solid #999;
+}
+
+.admin__date {
     padding: 5px;
     background-color: #eee;
     border: 1px solid #999;
@@ -126,15 +132,20 @@ svg.w-5.h-5 {
 .table__header {
     background-color: #000;
     color: #FFF;
+    border: 1px solid #000;
 }
 
 .table__header th {
-    padding: 10px;
+    padding: 10px 20px;
     text-align: left;
 }
 
+.table__description {
+    border: 1px solid #999;
+}
+
 .table__description td {
-    padding: 10px;
+    padding: 10px 20px;
     text-align: left;
 }
 
