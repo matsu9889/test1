@@ -26,6 +26,7 @@ Route::get('/login', [LoginController::class, 'index'])->name('login');
 Route::post('/login', [LoginController::class, 'login']);
 Route::post('/logout', [LoginController::class, 'logout']);
 Route::get('/register', [RegisterController::class, 'index']);
+Route::post('/register', [RegisterController::class, 'store']);
 //認証必要
 Route::middleware('auth')->group(function () {
     Route::get('/admin', [AdminContactController::class, 'index']);
