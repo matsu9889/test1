@@ -28,7 +28,7 @@ class Contact extends Model
 
     public function getFullNameAttribute()
     {
-        return $this->first_name . '　' . $this->last_name;
+        return $this->first_name . ' ' . $this->last_name;
     }
 
     public function getGenderLabelAttribute()
@@ -67,6 +67,14 @@ class Contact extends Model
             $query->where(function ($q) use ($keyword) {
                 $q->where('first_name', 'like', '%' . $keyword . '%')
                     ->orwhere('last_name', 'like', '%' . $keyword . '%')
+                    ->orWhereRaw(
+                        "CONCAT(first_name, last_name) LIKE ?",
+                        ["%{$keyword}%"]
+                    )
+                    ->orWhereRaw(
+                        "CONCAT(first_name, ' ', last_name) LIKE ?",
+                        ["%{$keyword}%"]
+                    )
                     ->orwhere('email', 'like', '%' . $keyword . '%');
             });
         }

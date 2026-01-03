@@ -30,6 +30,7 @@
                     </div>
                     <select class="admin__input-select" name="gender" id="">
                         <option value="">性別</option>
+                        <option value="">全て</option>
                         <option value="1">男性</option>
                         <option value="2">女性</option>
                         <option value="3">その他</option>
@@ -42,7 +43,7 @@
                     </select>
                     <input class="admin__date" type="date" name="created_at">
                     <button class="admin__input-search" type="submit">検索</button>
-                    <button class="admin__input-reset" type="reset">リセット</button>
+                    <a class="admin__input-reset" href="/admin/reset">リセット</a>
                 </div>
             </form>
             <div class="admin-controls">

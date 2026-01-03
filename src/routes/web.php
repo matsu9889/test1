@@ -23,4 +23,5 @@ Route::get('/thanks', function () {
 });
 Route::get('/admin', [AdminContactController::class, 'index']);
 Route::get('/admin/search', [AdminContactController::class, 'search']);
+Route::get('/admin/reset',[AdminContactController::class,'reset']);
 Route::delete('admin/delete/{id}', [AdminContactController::class, 'destroy']);

@@ -58,12 +58,14 @@
     padding: 5px;
     background-color: #eee;
     border: 1px solid #999;
+    cursor: pointer;
 }
 
 .admin__date {
     padding: 5px;
     background-color: #eee;
     border: 1px solid #999;
+    cursor: pointer;
 }
 
 .admin__input-search {
@@ -71,13 +73,19 @@
     background-color: #000;
     border: 1px solid #000;
     color: #FFF;
+    cursor: pointer;
 }
 
 .admin__input-reset {
     padding: 5px 10px;
     background-color: #999;
     border: 1px solid #999;
+}
+
+.admin__input-reset {
+    font-size: 14px;
     color: #FFF;
+    text-decoration: none;
 }
 
 /* コピペ */
@@ -147,6 +155,10 @@ svg.w-5.h-5 {
     border: 1px solid #999;
 }
 
+.table__description:hover {
+    background-color: #ddd;
+}
+
 .table__description td {
     padding: 10px 20px;
     text-align: left;
@@ -156,6 +168,7 @@ svg.w-5.h-5 {
     padding: 5px 10px;
     background-color: #eee;
     border: 1px solid #999;
+    cursor: pointer;
 }
 
 .modal {
