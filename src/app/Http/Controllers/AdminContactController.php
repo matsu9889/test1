@@ -10,7 +10,7 @@ class AdminContactController extends Controller
 {
     public function index()
     {
-        $contacts = Contact::all();
+        $contacts = Contact::with('category')->get();
         $categories = Category::all();
         $authors = Contact::Paginate(7);
         return view('admin.index', compact('contacts', 'categories', 'authors'));
@@ -29,9 +29,9 @@ class AdminContactController extends Controller
             $query->where('gender', $request->gender);
         }
 
-        // if ($request->detail != '') {
-        //     $query->where('category_id', $request->detail);
-        // }
+        if ($request->detail != '') {
+            $query->where('category_id', $request->detail);
+        }
 
         $categories = Category::all();
         $contacts = $query->get();

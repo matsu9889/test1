@@ -25,4 +25,18 @@ class Contact extends Model
     {
         return $this->belongsTo(Category::class);
     }
+
+    public function getFullNameAttribute()
+    {
+        return $this->first_name . '　' . $this->last_name;
+    }
+
+    public function getGenderLabelAttribute()
+    {
+        return [
+            1 => '男性',
+            2 => '女性',
+            3 => 'その他',
+        ][$this->gender] ?? '';
+    }
 }

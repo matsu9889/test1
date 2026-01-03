@@ -34,7 +34,7 @@
                         <option value="2">女性</option>
                         <option value="3">その他</option>
                     </select>
-                    <select class="admin__input-select" name="detail" id="">
+                    <select class="admin__input-select" name="category_id" id="">
                         <option value="">お問い合わせの種類</option>
                         @foreach($categories as $category)
                         <option value="{{ $category['id'] }}">{{ $category['content'] }}</option>
@@ -82,10 +82,10 @@
                 </tr>
                 @foreach($contacts as $contact)
                 <tr class="table__description">
-                    <td>{{$contact->name}}</td>
-                    <td>{{$contact->gender}}</td>
+                    <td>{{$contact->full_name}}</td>
+                    <td>{{$contact->gender_label}}</td>
                     <td>{{$contact->email}}</td>
-                    <td>{{$contact->category_id}}</td>
+                    <td>{{$contact->category->name}}</td>
                     <td>
                         <button class="table__description-detail" onclick="document.getElementById('modal').showModal()">
                             詳細
