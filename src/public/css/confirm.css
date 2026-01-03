@@ -1,3 +1,7 @@
+.contact-form {
+    margin-bottom: 30px;
+}
+
 .contact-form__content {
     margin: 0 auto;
     width: 70%;
@@ -12,7 +16,6 @@
 .contact-table {
     width: 100%;
     border-collapse: collapse;
-
 }
 
 .contact-table__header {
@@ -27,29 +30,38 @@
 
 .contact-table__item {
     width: 60%;
-    border: 1px solid #999;
     padding: 10px 20px;
+    border: 1px solid #999;
+}
+
+.contact-table__item input {
+    border: none;
+    width: 100%;
 }
 
 .form__button {
-    margin-top: 40px;
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 30px;
 }
 
-.form__button-submit {
+.contact-form__button-submit {
     padding: 5px 20px;
     margin-right: 20px;
     background-color: #000;
     color: #FFF;
     border: none;
-
+    cursor: pointer;
 }
 
-.form__button-correction {
+.correction-form__button {
     padding: 5px 20px;
     background-color: #FFF;
     color: #000;
+    text-decoration: underline;
     border: none;
+    cursor: pointer;
 }
 
 

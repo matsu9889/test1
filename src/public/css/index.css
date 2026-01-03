@@ -1,3 +1,7 @@
+.contact-form {
+    margin-bottom: 30px;
+}
+
 .contact-form__content {
     margin: 0 auto;
     width: 70%;
@@ -117,6 +121,7 @@
 }
 
 .form__button {
+    margin-top: 20px;
     text-align: center;
 }
 
@@ -127,4 +132,5 @@
     background-color: #000;
     color: #FFF;
     border: none;
+    cursor: pointer;
 }

@@ -17,7 +17,7 @@
             </div>
             <div class="contact-form__group-name">
                 <div class="contact-form__item">
-                    <input class="contact-form__item-input" type="text" name="first_name" id="first_name" placeholder="例:山田" value="{{ old('first_name') }}">
+                    <input class="contact-form__item-input" type="text" name="first_name" id="first_name" placeholder="例:山田" value="{{ old('first_name', request('first_name')) }}">
                     <div class="contact-form__error">
                         @error('first_name')
                         {{$message}}
@@ -25,7 +25,7 @@
                     </div>
                 </div>
                 <div class=" contact-form__item">
-                    <input class="contact-form__item-input" type="text" name="last_name" id="last_name" placeholder="例:太郎" value="{{ old('last_name') }}">
+                    <input class="contact-form__item-input" type="text" name="last_name" id="last_name" placeholder="例:太郎" value="{{ old('last_name', request('last_name')) }}">
                     <div class="contact-form__error">
                         @error('last_name')
                         {{$message}}
@@ -66,7 +66,7 @@
             </div>
             <div class="contact-form__group-email">
                 <div class="contact-form__item">
-                    <input class="contact-form__item-email" type="email" name="email" id="email" placeholder="例:test@example.com" value="{{ old('email') }}">
+                    <input class="contact-form__item-email" type="email" name="email" id="email" placeholder="例:test@example.com" value="{{ old('email', request('email')) }}">
                     <div class="contact-form__error">
                         @error('email')
                         {{$message}}
@@ -86,8 +86,12 @@
                     <input class="contact-form__item-tel" type="tel" name="tel3" id="tel3" placeholder="5678">
                 </div>
                 <div class="contact-form__error">
-                    @if ($errors->has('tel1') || $errors->has('tel2') || $errors->has('tel3'))
-                    電話番号を正しく入力してください
+                    @if ($errors->has('tel1'))
+                    {{ $errors->first('tel1') }}
+                    @elseif ($errors->has('tel2'))
+                    {{ $errors->first('tel2') }}
+                    @elseif ($errors->has('tel3'))
+                    {{ $errors->first('tel3') }}
                     @endif
                 </div>
             </div>
@@ -97,7 +101,7 @@
                 <label for="address">住所<span class="form__label--item"> ※</span></label>
             </div>
             <div class="contact-form__group-address">
-                <input class="contact-form__item-address" type="text" name="address" id="address" placeholder="例:東京都渋谷区千駄ヶ谷1-2-3" value="{{ old('address') }}">
+                <input class="contact-form__item-address" type="text" name="address" id="address" placeholder="例:東京都渋谷区千駄ヶ谷1-2-3" value="{{ old('address', request('address')) }}">
                 <div class="contact-form__error">
                     @error('address')
                     {{$message}}
@@ -110,7 +114,7 @@
                 <label for="building">建物名</label>
             </div>
             <div class="contact-form__group-building">
-                <input class="contact-form__item-building" type="text" name="building" id="building" placeholder="例:千駄ヶ谷マンション101" value="{{ old('building') }}">
+                <input class="contact-form__item-building" type="text" name="building" id="building" placeholder="例:千駄ヶ谷マンション101" value="{{ old('building', request('building')) }}">
             </div>
         </div>
         <div class="contact-form__group">
@@ -136,7 +140,7 @@
                 <label for="detail">お問い合わせ内容<span class="form__label--item"> ※</span></label>
             </div>
             <div class="contact-form__group-detail">
-                <textarea class="contact-form__item-detail" name="detail" id="detail" placeholder="お問い合わせ内容をご記載ください">{{ old('detail') }}</textarea>
+                <textarea class="contact-form__item-detail" name="detail" id="detail" placeholder="お問い合わせ内容をご記載ください">{{ old('detail', request('detail')) }}</textarea>
                 <div class="contact-form__error">
                     @error('detail')
                     {{$message}}
