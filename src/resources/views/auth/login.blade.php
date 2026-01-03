@@ -46,7 +46,7 @@
                     </div>
                 </div>
                 <div class="auth-button">
-                    <button class="auth-submit" type="submit">ログイン</button>
+                    <button class="auth-button__submit" type="submit">ログイン</button>
                 </div>
             </form>
         </div>
