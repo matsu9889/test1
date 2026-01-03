@@ -1,6 +1,9 @@
 <?php
 
 use App\Http\Controllers\ContactsController;
+use App\Http\Controllers\AdminContactController;
+use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\LoginController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,3 +23,16 @@ Route::post('/thanks', [ContactsController::class, 'store']);
 Route::get('/thanks', function () {
     return view('thanks');
 });
+//認証不要
+Route::get('/login', [LoginController::class, 'index'])->name('login');
+Route::post('/login', [LoginController::class, 'login']);
+Route::post('/logout', [LoginController::class, 'logout']);
+Route::get('/register', [RegisterController::class, 'index']);
+//認証必要
+Route::middleware('auth')->group(function () {
+    Route::get('/admin', [AdminContactController::class, 'index']);
+    Route::get('/search', [AdminContactController::class, 'search']);
+});
+
+
+
