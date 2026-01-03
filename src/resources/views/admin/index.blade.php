@@ -47,8 +47,6 @@
             </form>
             <div class="admin-controls">
                 <button class="export">エクスポート</button>
-
-                <!-- コピペ -->
                 <div class="custom-pagination">
                     <a href="{{ $contacts->url(max($contacts->currentPage() - 1, 1)) }}" class="arrow">&lt;</a>
 
@@ -71,13 +69,22 @@
                     <th></th>
                 </tr>
                 @foreach($contacts as $contact)
-                <tr class="table__description">
+                <tr class="table__description"
+                    data-name="{{ $contact->full_name }}"
+                    data-gender="{{ $contact->gender_label }}"
+                    data-email="{{ $contact->email }}"
+                    data-category="{{ $contact->category->content }}"
+                    data-tel="{{ $contact->tel }}"
+                    data-address="{{ $contact->address }}"
+                    data-building="{{ $contact->building }}"
+                    data-detail="{{ $contact->detail }}"
+                    data-id="{{ $contact->id }}">
                     <td>{{$contact->full_name}}</td>
                     <td>{{$contact->gender_label}}</td>
                     <td>{{$contact->email}}</td>
                     <td>{{$contact->category->content}}</td>
                     <td>
-                        <button class="table__description-detail" onclick="document.getElementById('modal').showModal()">
+                        <button class="table__description-detail">
                             詳細
                         </button>
                     </td>
@@ -89,50 +96,87 @@
     <dialog id="modal">
         <div class="modal">
             <div class="modal__content">
-                <button type="button" class="modal-close">&times;</button>
+                <button class="modal__close" type="button" id="modal-close">&times;</button>
                 <table class="modal__table">
                     <tr class="modal__table-row">
                         <th>お名前</th>
-                        <td>山田 太郎</td>
+                        <td id="modal-name"></td>
                     </tr>
                     <tr>
                         <th>性別</th>
-                        <td>男性</td>
+                        <td id="modal-gender"></td>
                     </tr>
                     <tr>
                         <th>メールアドレス</th>
-                        <td>test@example.com</td>
+                        <td id="modal-email"></td>
                     </tr>
                     <tr>
                         <th>電話番号</th>
-                        <td>08012345678</td>
+                        <td id="modal-tel"></td>
                     </tr>
                     <tr>
                         <th>住所</th>
-                        <td>東京都渋谷区千駄ヶ谷1-2-3</td>
+                        <td id="modal-address"></td>
                     </tr>
                     <tr>
                         <th>建物名</th>
-                        <td>千駄ヶ谷マンション101</td>
+                        <td id="modal-building"></td>
                     </tr>
                     <tr>
                         <th>お問い合わせの種類</th>
-                        <td>商品の交換について</td>
+                        <td id="modal-category"></td>
                     </tr>
                     <tr>
                         <th>お問い合わせ内容</th>
-                        <td>
-                            ここにお問い合わせ本文が入ります
+                        <td id="modal-detail">
                         </td>
                     </tr>
                 </table>
-                <form action=""></form>
-                <div class="modal__button">
-                    <button class="modal__button-delete">削除</button>
-                </div>
+                <form class="modal__delete-form" id="modal-delete-form" action="/admin/delete" method="post">
+                    @csrf
+                    @method('DELETE')
+                    <div class="modal__delete-button">
+                        <button class="modal__delete-submit" type="submit">削除</button>
+                    </div>
+                </form>
             </div>
         </div>
     </dialog>
 </body>
 
 </html>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const modal = document.getElementById('modal');
+        const closeBtn = document.getElementById('modal-close');
+
+        // 各行にクリックイベント
+        document.querySelectorAll('.table__description-detail').forEach(button => {
+            button.addEventListener('click', function() {
+                const tr = this.closest('tr');
+
+                // モーダルに値をセット
+                document.getElementById('modal-name').textContent = tr.dataset.name;
+                document.getElementById('modal-gender').textContent = tr.dataset.gender;
+                document.getElementById('modal-email').textContent = tr.dataset.email;
+                document.getElementById('modal-tel').textContent = tr.dataset.tel;
+                document.getElementById('modal-address').textContent = tr.dataset.address;
+                document.getElementById('modal-building').textContent = tr.dataset.building;
+                document.getElementById('modal-category').textContent = tr.dataset.category;
+                document.getElementById('modal-detail').textContent = tr.dataset.detail;
+
+                // 削除フォームの action をセット
+                document.getElementById('modal-delete-form').action = `/admin/delete/${tr.dataset.id}`;
+
+                // モーダル表示
+                modal.showModal();
+            });
+        });
+
+        // ×ボタンで閉じる
+        closeBtn.addEventListener('click', function() {
+            modal.close();
+        });
+    });
+</script>

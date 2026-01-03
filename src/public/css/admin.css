@@ -180,7 +180,7 @@ svg.w-5.h-5 {
     box-shadow: 5px 5px 3px #333;
 }
 
-.modal-close {
+.modal__close {
     position: absolute;
     top: 15px;
     right: 15px;
@@ -208,13 +208,12 @@ svg.w-5.h-5 {
     text-align: left;
 }
 
-.modal__button {
+.modal__delete-button {
     margin-top: 30px;
     text-align: center;
-
 }
 
-.modal__button-delete {
+.modal__delete-submit {
     padding: 5px 10px;
     background-color: #F00;
     color: #FFF;

@@ -26,4 +26,10 @@ class AdminContactController extends Controller
         $categories = Category::all();
         return view('admin.index', compact('contacts', 'categories'));
     }
+
+    public function destroy(Request $request)
+    {
+        Contact::find($request->id)->delete();
+        return redirect('admin');
+    }
 }
