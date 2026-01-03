@@ -12,7 +12,7 @@
 <body>
     <header class="header">
         <h1 class="header__inner">
-            <a href="">
+            <a href="/admin">
                 Fashionably Late
             </a>
         </h1>
@@ -47,28 +47,20 @@
             </form>
             <div class="admin-controls">
                 <button class="export">エクスポート</button>
-                @foreach ($authors as $author)
-                <div class="Pagination">
-                    {{$author->name}}
-                </div>
-                @endforeach
 
                 <!-- コピペ -->
                 <div class="custom-pagination">
-                    {{-- 前ページ --}}
-                    <a href="{{ $authors->url(max($authors->currentPage() - 1, 1)) }}" class="arrow">&lt;</a>
+                    <a href="{{ $contacts->url(max($contacts->currentPage() - 1, 1)) }}" class="arrow">&lt;</a>
 
-                    @for ($i = 1; $i <= $authors->lastPage(); $i++)
-                        <a href="{{ $authors->url($i) }}" class="{{ $i == $authors->currentPage() ? 'active' : '' }}">
+                    @for ($i = 1; $i <= $contacts->lastPage(); $i++)
+                        <a href="{{ $contacts->url($i) }}" class="{{ $i == $contacts->currentPage() ? 'active' : '' }}">
                             {{ $i }}
                         </a>
                         @endfor
 
-                        {{-- 次ページ（常に表示） --}}
-                        <a href="{{ $authors->url(min($authors->currentPage() + 1, $authors->lastPage())) }}" class="arrow">&gt;</a>
+                        <a href="{{ $contacts->url(min($contacts->currentPage() + 1, $contacts->lastPage())) }}" class="arrow">&gt;</a>
                 </div>
             </div>
-
 
             <table class="table">
                 <tr class="table__header">
